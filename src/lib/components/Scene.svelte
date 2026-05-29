@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { T, useTask, useThrelte } from '@threlte/core';
-	import { GLTF, interactivity, type IntersectionEvent } from '@threlte/extras';
+	import { GLTF, Text, interactivity, type IntersectionEvent } from '@threlte/extras';
 	import { base } from '$app/paths';
-	import { BackSide, Mesh, MeshBasicMaterial, type Group } from 'three';
+	import { BackSide, DoubleSide, Mesh, MeshBasicMaterial, type Group } from 'three';
 
 	let { reduceMotion = false }: { reduceMotion?: boolean } = $props();
 
@@ -120,4 +120,38 @@
 	{#if outline}
 		<T is={outline} scale={1.04} visible={hovered} />
 	{/if}
+
+	<!-- 3D "click me" tooltip — child of the laptop group, so the whole little
+	     badge spins/tilts as one object with the laptop -->
+	<T.Group position={[0, 2.4, 0]}>
+		<!-- badge plate -->
+		<T.Mesh>
+			<T.PlaneGeometry args={[1.5, 0.6]} />
+			<T.MeshBasicMaterial color={hovered ? '#2f81f7' : '#1f6feb'} toneMapped={false} side={DoubleSide} />
+		</T.Mesh>
+		<!-- pointer tip (small diamond) under the plate, aimed at the laptop -->
+		<T.Mesh position={[0, -0.34, 0]} rotation={[0, 0, Math.PI / 4]}>
+			<T.PlaneGeometry args={[0.22, 0.22]} />
+			<T.MeshBasicMaterial color={hovered ? '#2f81f7' : '#1f6feb'} toneMapped={false} side={DoubleSide} />
+		</T.Mesh>
+		<!-- label text, nudged forward so it sits on top of the plate -->
+		<Text
+			text="click me"
+			position={[0, 0, 0.01]}
+			fontSize={0.26}
+			anchorX="center"
+			anchorY="middle"
+			color="#ffffff"
+		/>
+		<!-- same label on the back, flipped 180° so it reads correctly from behind -->
+		<Text
+			text="click me"
+			position={[0, 0, -0.01]}
+			rotation={[0, Math.PI, 0]}
+			fontSize={0.26}
+			anchorX="center"
+			anchorY="middle"
+			color="#ffffff"
+		/>
+	</T.Group>
 </T.Group>
