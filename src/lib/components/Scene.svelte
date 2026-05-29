@@ -8,6 +8,26 @@
 
 	const { invalidate, camera } = useThrelte();
 
+	// viewport-reactive layout — fixed cam/fov means a portrait phone's narrow
+	// horizontal FOV pushes a large +x offset off-screen, so the laptop must move
+	// inward + shrink on small devices. tracked live via resize.
+	let vw = $state(1280);
+	$effect(() => {
+		const onResize = () => (vw = window.innerWidth);
+		onResize();
+		window.addEventListener('resize', onResize);
+		return () => window.removeEventListener('resize', onResize);
+	});
+
+	// per-breakpoint world position + base scale of the laptop
+	type Vec3 = [number, number, number];
+	let layout = $derived.by((): { pos: Vec3; base: number } => {
+		if (vw < 480) return { pos: [0, -4.1, 0], base: 0.5 }; // small phone: center, bigger
+		if (vw < 640) return { pos: [0, -3.9, 0], base: 0.58 }; // phone
+		if (vw < 1024) return { pos: [3.4, -3.9, 0], base: 0.52 }; // tablet
+		return { pos: [6, -3.6, 0], base: 0.65 }; // desktop
+	});
+
 	const WHATSAPP = 'https://wa.me/6281225344932';
 
 	// blue back-face shell → renders behind the laptop, slightly inflated = outline
@@ -56,9 +76,16 @@
 	let tiltY = $state(0); // cursor tilt (Y), added on top of spin
 	let lapScale = $state(0.65);
 
-	const REST = 0.65;
-	const HOVER = 0.77;
+	const HOVER_MULT = 1.18; // grow factor on hover
 	const SPIN_SPEED = 0.35; // rad/s — slow
+
+	// keep scale synced to the responsive base when motion is off (task is skipped),
+	// and force a repaint on any layout change since render is on-demand
+	$effect(() => {
+		if (reduceMotion) lapScale = layout.base;
+		void layout;
+		invalidate();
+	});
 
 	const accent = '#58a6ff';
 	const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -72,7 +99,7 @@
 			// tilt toward cursor + grow only while the ray is over the model
 			const targetY = hovered ? px * 0.6 : 0;
 			const targetX = hovered ? -py * 0.4 : 0;
-			const targetS = hovered ? HOVER : REST;
+			const targetS = layout.base * (hovered ? HOVER_MULT : 1);
 			const t = Math.min(delta * 5, 1);
 
 			tiltY = lerp(tiltY, targetY, t);
@@ -95,7 +122,7 @@
 
 <!-- ░░ LAPTOP (real glb — fixed position, reacts when the cursor is over it) ░░ -->
 <T.Group
-	position={[6, -3.6, 0]}
+	position={layout.pos}
 	rotation={[lapRotX, spin + tiltY, 0]}
 	scale={lapScale}
 	onpointerenter={() => {

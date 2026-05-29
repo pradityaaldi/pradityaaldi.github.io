@@ -34,46 +34,47 @@
 			<!-- brand -->
 			<button
 				onclick={() => goto(0)}
-				class="flex items-center gap-2.5 text-left transition-opacity hover:opacity-80"
+				class="flex min-w-0 items-center gap-2.5 text-left transition-opacity hover:opacity-80"
 			>
 				<img
 					src="/avatar.jpeg"
 					alt={site.name}
 					width="28"
 					height="28"
-					class="h-7 w-7 rounded-full border border-ink-700"
+					class="h-7 w-7 shrink-0 rounded-full border border-ink-700"
 					style="height:28px;width:28px"
 				/>
-				<span class="flex items-center gap-1.5 text-sm">
-					<span class="font-semibold text-fg">{site.name.split(' ')[0]}</span>
-					<span class="text-fg-muted">/</span>
-					<span class="font-semibold text-fg">portfolio</span>
+				<span class="flex min-w-0 items-center gap-1.5 text-sm">
+					<span class="truncate font-semibold text-fg">{site.name.split(' ')[0]}</span>
+					<span class="hidden text-fg-muted xs:inline">/</span>
+					<span class="hidden font-semibold text-fg xs:inline">portfolio</span>
 				</span>
 			</button>
 
 			<!-- right actions -->
-			<div class="flex items-center gap-2">
+			<div class="flex shrink-0 items-center gap-2">
 				{#each socials.slice(0, 2) as s}
 					<a
 						href={s.href}
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label={s.label}
-						class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-ink-700 bg-ink-600 text-fg-muted transition-colors duration-200 hover:bg-ink-700 hover:text-fg"
+						class="hidden h-8 w-8 items-center justify-center rounded-md border border-ink-700 bg-ink-600 text-fg-muted transition-colors duration-200 hover:bg-ink-700 hover:text-fg xs:inline-flex"
 					>
 						<svg viewBox="0 0 24 24" class="h-4 w-4 fill-current"><path d={s.icon} /></svg>
 					</a>
 				{/each}
 				<button
 					onclick={() => goto(3)}
-					class="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-success px-3 py-1.5 text-xs font-semibold text-white transition-colors duration-200 hover:bg-success-hover"
+					aria-label="Contact"
+					class="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-success px-2.5 py-1.5 text-xs font-semibold text-white transition-colors duration-200 hover:bg-success-hover sm:px-3"
 				>
 					<svg viewBox="0 0 16 16" class="h-3.5 w-3.5 fill-current"
 						><path
 							d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v9.5A1.75 1.75 0 0 1 14.25 14H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 15.543V14H1.75A1.75 1.75 0 0 1 0 12.25v-9.5C0 1.784.784 1 1.75 1Z"
 						/></svg
 					>
-					Contact
+					<span class="hidden xs:inline">Contact</span>
 				</button>
 			</div>
 		</div>
