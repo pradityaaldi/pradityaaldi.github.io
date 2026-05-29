@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { site } from '$lib/data/site';
-	import Hero3D from './Hero3D.svelte';
 	import Reveal from './Reveal.svelte';
 
 	function goto(i: number) {
@@ -13,7 +12,6 @@
 	class="relative flex min-h-screen scroll-mt-24 flex-col justify-center overflow-hidden py-28"
 >
 	<div class="grid-backdrop pointer-events-none absolute inset-0 -z-20"></div>
-	<Hero3D />
 
 	<div class="container-page">
 		<div class="mb-8 flex flex-col items-center gap-5 md:flex-row md:items-center">

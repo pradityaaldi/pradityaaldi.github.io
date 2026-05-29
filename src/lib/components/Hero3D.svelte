@@ -10,7 +10,7 @@
 	});
 </script>
 
-<div class="pointer-events-none absolute inset-0 -z-10 opacity-80">
+<div class="pointer-events-none fixed inset-0 z-0 opacity-80">
 	{#if mounted}
 		<Canvas>
 			<Scene />

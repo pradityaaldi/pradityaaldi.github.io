@@ -52,9 +52,16 @@
 		© {site.name}. Built with SvelteKit, Threlte & Tailwind.
 	</p>
 	<p class="mt-1 text-center text-[11px] text-fg-subtle">
-		3D model: "Laptop / MacBook Pro" via
+		"Laptop / MacBook Pro" by Alex Safayan
 		<a
-			href="https://poly.pizza/"
+			href="https://creativecommons.org/licenses/by/3.0/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="text-accent hover:underline">[CC-BY]</a
+		>
+		via
+		<a
+			href="https://poly.pizza/m/27hcX_w47Jb"
 			target="_blank"
 			rel="noopener noreferrer"
 			class="text-accent hover:underline">Poly Pizza</a

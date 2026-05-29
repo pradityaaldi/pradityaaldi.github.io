@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
+	import Hero3D from '$lib/components/Hero3D.svelte';
 	import Projects from '$lib/components/Projects.svelte';
 	import Services from '$lib/components/Services.svelte';
 	import Contact from '$lib/components/Contact.svelte';
@@ -50,7 +51,9 @@
 	<meta property="og:type" content="website" />
 </svelte:head>
 
-<main>
+<Hero3D />
+
+<main class="relative z-10">
 	<Hero />
 	<Projects />
 	<Services />
