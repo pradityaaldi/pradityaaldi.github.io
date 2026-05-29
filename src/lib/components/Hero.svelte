@@ -89,7 +89,7 @@
 		</div>
 
 		<Reveal delay={700}>
-			<div class="mt-10 flex flex-wrap gap-3">
+			<div class="mx-auto mt-10 flex max-w-3xl flex-wrap gap-3">
 				<button
 					onclick={() => goto(1)}
 					class="group inline-flex items-center gap-2 rounded-md border border-white/10 bg-success px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-success-hover"
