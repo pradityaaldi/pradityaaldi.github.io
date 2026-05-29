@@ -22,31 +22,35 @@
 
 <section
 	id="services"
-	class="container-page flex min-h-full flex-col justify-center py-20"
+	class="container-page flex min-h-screen scroll-mt-24 flex-col justify-center py-28"
 >
 	<Reveal>
-		<div class="mb-10">
-			<h2 class="font-display text-3xl font-bold text-white">Services</h2>
-			<p class="mt-1 text-neutral-400">What I can help you build</p>
+		<div class="mb-8 flex items-center gap-3 border-b border-ink-700 pb-4">
+			<svg viewBox="0 0 16 16" class="h-6 w-6 fill-fg-muted"
+				><path
+					d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+				/></svg
+			>
+			<div>
+				<h2 class="font-display text-2xl font-bold text-fg">Services</h2>
+				<p class="text-sm text-fg-muted">What I can help you build</p>
+			</div>
 		</div>
 	</Reveal>
 
-	<div class="grid gap-5 md:grid-cols-3">
+	<div class="grid gap-4 md:grid-cols-3">
 		{#each services as s, i}
 			<Reveal delay={i * 120}>
 				<div
-					class="group relative h-full overflow-hidden border border-ink-700 bg-ink-900/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:shadow-glow"
+					class="group relative h-full overflow-hidden rounded-md border border-ink-700 bg-ink-800 p-6 transition-colors duration-200 hover:border-fg-muted"
 				>
 					<div
-						class="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-accent/10 blur-2xl transition-all duration-500 group-hover:bg-accent/25"
-					></div>
-					<div
-						class="mb-5 inline-flex h-12 w-12 items-center justify-center border border-accent/40 bg-accent/10 text-accent transition-colors duration-500 group-hover:bg-accent group-hover:text-ink-950"
+						class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-md border border-accent/30 bg-accent/10 text-accent transition-colors duration-300 group-hover:border-accent/60"
 					>
 						<svg viewBox="0 0 24 24" class="h-6 w-6 fill-current"><path d={s.icon} /></svg>
 					</div>
-					<h3 class="mb-2 font-display text-lg font-semibold text-white">{s.title}</h3>
-					<p class="text-sm leading-relaxed text-neutral-400">{s.desc}</p>
+					<h3 class="mb-2 font-display text-lg font-semibold text-fg">{s.title}</h3>
+					<p class="text-sm leading-relaxed text-fg-muted">{s.desc}</p>
 				</div>
 			</Reveal>
 		{/each}

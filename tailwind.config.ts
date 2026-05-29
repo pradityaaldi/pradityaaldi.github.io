@@ -5,24 +5,58 @@ export default {
 	theme: {
 		extend: {
 			colors: {
+				// GitHub dark (Primer) accent — link blue
 				accent: {
-					DEFAULT: '#22d3ee',
-					soft: '#67e8f9',
-					deep: '#0891b2'
+					DEFAULT: '#58a6ff',
+					soft: '#79c0ff',
+					deep: '#1f6feb',
+					fg: '#2f81f7'
 				},
+				// GitHub primary/action green
+				success: {
+					DEFAULT: '#238636',
+					hover: '#2ea043',
+					fg: '#3fb950'
+				},
+				// GitHub dark canvas + borders
 				ink: {
-					950: '#05070a',
-					900: '#0a0e14',
-					800: '#11161f',
-					700: '#1a212d'
+					950: '#010409', // canvas.inset (header/footer)
+					900: '#0d1117', // canvas.default (page bg)
+					800: '#161b22', // canvas.subtle (cards)
+					700: '#30363d', // border.default
+					600: '#21262d' // border.muted / btn bg
+				},
+				fg: {
+					DEFAULT: '#e6edf3',
+					muted: '#7d8590',
+					subtle: '#6e7681'
 				}
 			},
 			fontFamily: {
-				display: ['Montserrat', 'system-ui', 'sans-serif'],
-				sans: ['Inter', 'system-ui', 'sans-serif']
+				display: [
+					'-apple-system',
+					'BlinkMacSystemFont',
+					'Segoe UI',
+					'Noto Sans',
+					'Helvetica',
+					'Arial',
+					'sans-serif'
+				],
+				sans: [
+					'-apple-system',
+					'BlinkMacSystemFont',
+					'Segoe UI',
+					'Noto Sans',
+					'Helvetica',
+					'Arial',
+					'sans-serif'
+				],
+				mono: ['ui-monospace', 'SFMono-Regular', 'SF Mono', 'Menlo', 'Consolas', 'monospace']
 			},
 			boxShadow: {
-				glow: '0 0 40px -10px rgba(34,211,238,0.45)'
+				// GitHub overlay shadow
+				glow: '0 8px 24px rgba(1,4,9,0.6)',
+				gh: '0 8px 24px rgba(1,4,9,0.4)'
 			},
 			keyframes: {
 				'fade-up': {

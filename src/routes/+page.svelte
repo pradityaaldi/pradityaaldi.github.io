@@ -3,85 +3,35 @@
 	import Projects from '$lib/components/Projects.svelte';
 	import Services from '$lib/components/Services.svelte';
 	import Contact from '$lib/components/Contact.svelte';
-	import Dock from '$lib/components/Dock.svelte';
+	import Header from '$lib/components/Header.svelte';
 	import { site } from '$lib/data/site';
 
-	const total = 4;
-	let index = $state(0);
-	let animating = $state(false);
-	let slides = $state<HTMLElement[]>([]);
-	let container: HTMLElement;
-
-	const LOCK = 850; // ms — must match transition duration
-
-	function go(dir: number) {
-		if (animating) return;
-		const next = Math.min(total - 1, Math.max(0, index + dir));
-		if (next === index) return;
-		index = next;
-		animating = true;
-		setTimeout(() => (animating = false), LOCK);
-	}
-
-	function goto(i: number) {
-		if (animating || i === index) return;
-		index = i;
-		animating = true;
-		setTimeout(() => (animating = false), LOCK);
-	}
-
-	// allow inner scroll when a slide is taller than the viewport;
-	// only advance the deck once the slide is scrolled to its edge
-	function atEdge(dir: number) {
-		const el = slides[index];
-		if (!el) return true;
-		if (dir > 0) return Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight - 1;
-		return el.scrollTop <= 1;
-	}
-
-	function onWheel(e: WheelEvent) {
-		const dir = e.deltaY > 0 ? 1 : -1;
-		if (!atEdge(dir)) return; // let the inner content scroll natively
-		e.preventDefault();
-		if (Math.abs(e.deltaY) < 6) return;
-		go(dir);
-	}
-
-	let touchY = 0;
-	function onTouchStart(e: TouchEvent) {
-		touchY = e.touches[0].clientY;
-	}
-	function onTouchEnd(e: TouchEvent) {
-		const dy = touchY - e.changedTouches[0].clientY;
-		if (Math.abs(dy) < 40) return;
-		const dir = dy > 0 ? 1 : -1;
-		if (!atEdge(dir)) return;
-		go(dir);
-	}
-
-	function onKey(e: KeyboardEvent) {
-		if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
-			if (atEdge(1)) {
-				e.preventDefault();
-				go(1);
-			}
-		} else if (['ArrowUp', 'PageUp'].includes(e.key)) {
-			if (atEdge(-1)) {
-				e.preventDefault();
-				go(-1);
-			}
-		}
-	}
+	const ids = ['home', 'projects', 'services', 'contact'];
+	let active = $state(0);
 
 	$effect(() => {
-		container.addEventListener('wheel', onWheel, { passive: false });
-		const onGoto = (e: Event) => goto((e as CustomEvent<number>).detail);
+		const onGoto = (e: Event) => {
+			const i = (e as CustomEvent<number>).detail;
+			document.getElementById(ids[i])?.scrollIntoView({ behavior: 'smooth' });
+		};
 		window.addEventListener('goto-slide', onGoto);
-		window.addEventListener('keydown', onKey);
+
+		const sections = ids
+			.map((id) => document.getElementById(id))
+			.filter((el): el is HTMLElement => !!el);
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const en of entries) {
+					if (en.isIntersecting) active = ids.indexOf(en.target.id);
+				}
+			},
+			{ rootMargin: '-45% 0px -50% 0px' }
+		);
+		sections.forEach((s) => io.observe(s));
+
 		return () => {
-			container.removeEventListener('wheel', onWheel);
 			window.removeEventListener('goto-slide', onGoto);
-			window.removeEventListener('keydown', onKey);
+			io.disconnect();
 		};
 	});
 </script>
@@ -100,35 +50,11 @@
 	<meta property="og:type" content="website" />
 </svelte:head>
 
-<div
-	bind:this={container}
-	class="fixed inset-0 overflow-hidden"
-	ontouchstart={onTouchStart}
-	ontouchend={onTouchEnd}
->
-	<!-- vertical slide deck -->
-	<div
-		class="will-change-transform transition-transform duration-[850ms] ease-[cubic-bezier(0.76,0,0.24,1)]"
-		style="transform: translateY(calc(-{index} * 100svh))"
-	>
-		<div bind:this={slides[0]} class="h-svh overflow-y-auto overflow-x-hidden"><Hero /></div>
-		<div bind:this={slides[1]} class="h-svh overflow-y-auto overflow-x-hidden"><Projects /></div>
-		<div bind:this={slides[2]} class="h-svh overflow-y-auto overflow-x-hidden"><Services /></div>
-		<div bind:this={slides[3]} class="h-svh overflow-y-auto overflow-x-hidden"><Contact /></div>
-	</div>
-</div>
+<main>
+	<Hero />
+	<Projects />
+	<Services />
+	<Contact />
+</main>
 
-<!-- progress dots -->
-<div class="fixed right-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-3 md:flex">
-	{#each Array(total) as _, i}
-		<button
-			aria-label="Go to slide {i + 1}"
-			onclick={() => goto(i)}
-			class="h-2.5 w-2.5 rounded-full border border-accent/50 transition-all duration-300 {index === i
-				? 'scale-125 bg-accent shadow-glow'
-				: 'bg-transparent hover:bg-accent/40'}"
-		></button>
-	{/each}
-</div>
-
-<Dock />
+<Header {active} />

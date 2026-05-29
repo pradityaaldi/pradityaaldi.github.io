@@ -6,9 +6,9 @@
 	// global slow spin for each cluster
 	let spin = $state(0);
 
-	const accent = '#22d3ee';
-	const accentDeep = '#0891b2';
-	const screen = '#0a0e14';
+	const accent = '#58a6ff';
+	const accentDeep = '#1f6feb';
+	const screen = '#0d1117';
 
 	useTask((delta) => {
 		spin += delta * 0.25;
