@@ -54,10 +54,10 @@
 	let spin = $state(0); // slow continuous Y rotation
 	let lapRotX = $state(0); // cursor tilt (X)
 	let tiltY = $state(0); // cursor tilt (Y), added on top of spin
-	let lapScale = $state(1);
+	let lapScale = $state(0.65);
 
-	const REST = 1;
-	const HOVER = 1.18;
+	const REST = 0.65;
+	const HOVER = 0.77;
 	const SPIN_SPEED = 0.35; // rad/s — slow
 
 	const accent = '#58a6ff';
