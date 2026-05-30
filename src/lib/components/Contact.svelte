@@ -15,7 +15,7 @@
 				Let's build something together
 			</h2>
 			<p class="relative mx-auto mt-3 max-w-xl text-fg-muted">
-				Open to freelance work, collaboration, or just a chat about web development & design.
+				Open to freelance work, collaboration, or just a chat about AI integration & full-stack development.
 			</p>
 
 			<div class="relative mt-8 flex flex-wrap items-center justify-center gap-3">

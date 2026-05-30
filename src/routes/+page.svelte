@@ -38,15 +38,15 @@
 </script>
 
 <svelte:head>
-	<title>{site.name} — Web Developer</title>
+	<title>{site.name} — Full-Stack & AI Integration Developer</title>
 	<meta
 		name="description"
-		content="{site.name} — frontend & web developer based in Yogyakarta. Building clean, responsive, user-friendly web interfaces."
+		content="{site.name} — full-stack & AI integration developer based in Yogyakarta. Building AI-powered web & mobile apps and chatbots with OpenAI/Claude APIs, React, Next.js, Node.js & SvelteKit."
 	/>
-	<meta property="og:title" content="{site.name} — Web Developer" />
+	<meta property="og:title" content="{site.name} — Full-Stack & AI Integration Developer" />
 	<meta
 		property="og:description"
-		content="Frontend & web developer building clean, responsive web interfaces."
+		content="Building AI-powered web & mobile apps and chatbots with OpenAI/Claude APIs and full-stack tooling."
 	/>
 	<meta property="og:type" content="website" />
 </svelte:head>

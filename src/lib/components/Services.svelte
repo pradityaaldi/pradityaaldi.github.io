@@ -3,18 +3,18 @@
 
 	const services = [
 		{
-			title: 'Website Development',
-			desc: 'Clean, responsive, performant web apps with React, Svelte & modern tooling.',
+			title: 'AI Integration',
+			desc: 'Wire OpenAI & Claude APIs into web apps and chatbots that feel smart and effortless.',
+			icon: 'M12 2a2 2 0 0 1 2 2 2 2 0 0 1 2 2v.28A2 2 0 0 1 18 8a2 2 0 0 1 1 3.73A2 2 0 0 1 18 16a2 2 0 0 1-2 2 2 2 0 0 1-2 2 2 2 0 0 1-4 0 2 2 0 0 1-2-2 2 2 0 0 1-2-2 2 2 0 0 1-1-4.27A2 2 0 0 1 6 8a2 2 0 0 1 2-1.72V6a2 2 0 0 1 2-2 2 2 0 0 1 2-2Zm-1 5H9.5a1.5 1.5 0 0 0 0 3H11V7Zm2 0v3h1.5a1.5 1.5 0 0 0 0-3H13Zm-2 5H9.5a1.5 1.5 0 0 0 0 3H11v-3Zm2 0v3h1.5a1.5 1.5 0 0 0 0-3H13Z'
+		},
+		{
+			title: 'Full-Stack Development',
+			desc: 'End-to-end web & mobile apps with React, Next.js, Node.js, SvelteKit & React Native.',
 			icon: 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-5l1 2h3v2H6v-2h3l1-2H5a2 2 0 0 1-2-2V5Zm2 0v11h14V5H5Zm2.5 2.5L10 10l-2.5 2.5L6 11l1-1-1-1 1.5-1.5Zm5 6.5h4v-1.5h-4V14Z'
 		},
 		{
-			title: 'UI / UX Design',
-			desc: 'Thoughtful interfaces and design systems that feel effortless to use.',
-			icon: 'M12 2 2 7l10 5 10-5-10-5Zm0 2.2L18.5 7 12 9.8 5.5 7 12 4.2ZM2 12l10 5 10-5-2-1-8 4-8-4-2 1Zm0 5 10 5 10-5-2-1-8 4-8-4-2 1Z'
-		},
-		{
-			title: 'Frontend Mentoring',
-			desc: 'Coaching developers in frontend craft, code quality and best practices.',
+			title: 'Mentoring & Training',
+			desc: 'Coaching developers and running hands-on training in web fundamentals and best practices.',
 			icon: 'M12 3 1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3Zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9ZM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72Z'
 		}
 	];

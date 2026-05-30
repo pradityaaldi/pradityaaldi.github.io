@@ -1,12 +1,12 @@
 export const site = {
 	name: 'Praditya Aldi Syahputra',
-	roles: ['Web Developer', 'Remote worker'],
+	roles: ['Full-Stack & AI Developer', 'Remote worker'],
 	location: 'Based in Yogyakarta',
 	email: 'pradityaaldi.s@gmail.com',
 	bio: [
-		"Hi! I'm a frontend developer who loves building clean, responsive, and user-friendly web interfaces. I enjoy working with technologies like JavaScript, React, and CSS to create seamless experiences that make users happy.",
-		"While my main focus is on frontend, I also have experience in backend development, which helps me understand the full picture of a web project. I'm always eager to learn new things, explore the latest trends in design, and work on projects that challenge me to grow.",
-		"Let's connect and chat about web development, design, or potential collaboration!"
+		"Hi! I'm a full-stack & AI integration developer building AI-powered web and mobile applications for clients and personal projects. I integrate OpenAI and Claude APIs into web apps and chatbots to ship products that feel smart and effortless.",
+		"I work across the stack with React, Next.js, Node.js and Svelte/SvelteKit, and build mobile apps with React Native. I also have a foot in cyber security — bug discovery, reporting, and building things that hold up.",
+		"Let's connect and chat about AI integration, full-stack development, or potential collaboration!"
 	]
 };
 
