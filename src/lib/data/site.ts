@@ -6,8 +6,8 @@ export const site = {
 	headline:
 		'Full-Stack & AI Integration Developer building AI-powered web apps & chatbots with OpenAI/Claude APIs, React, Next.js, Node.js & SvelteKit.',
 	roles: ['Full-Stack & AI Developer', 'Remote worker'],
-	location: 'Based in Yogyakarta',
-	locality: 'Yogyakarta',
+	location: 'Based in Indonesia',
+	locality: 'Indonesia',
 	country: 'ID',
 	email: 'pradityaaldi.s@gmail.com',
 	image: 'avatar.jpeg',

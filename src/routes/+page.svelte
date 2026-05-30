@@ -84,11 +84,11 @@
 	<title>{site.name} — Full-Stack & AI Integration Developer</title>
 	<meta
 		name="description"
-		content="{site.name} — full-stack & AI integration developer based in Yogyakarta, Indonesia. Building AI-powered web & mobile apps and chatbots with OpenAI/Claude APIs, React, Next.js, Node.js & SvelteKit."
+		content="{site.name} — full-stack & AI integration developer based in Indonesia. Building AI-powered web & mobile apps and chatbots with OpenAI/Claude APIs, React, Next.js, Node.js & SvelteKit."
 	/>
 	<meta
 		name="keywords"
-		content="Praditya Aldi Syahputra, Full-Stack Developer, AI Integration Developer, OpenAI API, Claude API, Chatbot Developer, React, Next.js, Node.js, SvelteKit, React Native, Web Developer Yogyakarta, Indonesia"
+		content="Praditya Aldi Syahputra, Full-Stack Developer, AI Integration Developer, OpenAI API, Claude API, Chatbot Developer, React, Next.js, Node.js, SvelteKit, React Native, Web Developer Indonesia"
 	/>
 	<meta name="author" content={site.name} />
 	<meta name="robots" content="index, follow, max-image-preview:large" />
