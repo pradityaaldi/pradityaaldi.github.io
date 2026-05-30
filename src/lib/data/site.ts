@@ -1,8 +1,32 @@
 export const site = {
 	name: 'Praditya Aldi Syahputra',
+	alternateName: 'Praditya Aldi',
+	url: 'https://pradityaaldi.github.io',
+	jobTitle: 'Full-Stack & AI Integration Developer',
+	headline:
+		'Full-Stack & AI Integration Developer building AI-powered web apps & chatbots with OpenAI/Claude APIs, React, Next.js, Node.js & SvelteKit.',
 	roles: ['Full-Stack & AI Developer', 'Remote worker'],
 	location: 'Based in Yogyakarta',
+	locality: 'Yogyakarta',
+	country: 'ID',
 	email: 'pradityaaldi.s@gmail.com',
+	image: 'avatar.jpeg',
+	skills: [
+		'AI Integration',
+		'OpenAI API',
+		'Claude API',
+		'Chatbot Development',
+		'Full-Stack Development',
+		'React',
+		'Next.js',
+		'Node.js',
+		'Svelte',
+		'SvelteKit',
+		'React Native',
+		'TypeScript',
+		'Tailwind CSS',
+		'Cyber Security'
+	],
 	bio: [
 		"Hi! I'm a full-stack & AI integration developer building AI-powered web and mobile applications for clients and personal projects. I integrate OpenAI and Claude APIs into web apps and chatbots to ship products that feel smart and effortless.",
 		"I work across the stack with React, Next.js, Node.js and Svelte/SvelteKit, and build mobile apps with React Native. I also have a foot in cyber security — bug discovery, reporting, and building things that hold up.",

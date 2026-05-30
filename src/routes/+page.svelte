@@ -5,9 +5,51 @@
 	import Services from '$lib/components/Services.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import { site } from '$lib/data/site';
+	import { site, socials } from '$lib/data/site';
+	import { projects } from '$lib/data/projects';
 
 	const ids = ['home', 'projects', 'services', 'contact'];
+
+	const ogImage = `${site.url}/${site.image}`;
+
+	const personSchema = {
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: site.name,
+		alternateName: site.alternateName,
+		url: site.url,
+		image: ogImage,
+		jobTitle: site.jobTitle,
+		description: site.headline,
+		email: `mailto:${site.email}`,
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: site.locality,
+			addressCountry: site.country
+		},
+		knowsAbout: site.skills,
+		sameAs: socials.filter((s) => s.href.startsWith('http')).map((s) => s.href),
+		alumniOf: [
+			{ '@type': 'CollegeOrUniversity', name: 'Universitas AMIKOM Yogyakarta' },
+			{ '@type': 'EducationalOrganization', name: 'SMK Negeri 2 Yogyakarta' }
+		],
+		worksFor: { '@type': 'Organization', name: 'Freelance' }
+	};
+
+	const websiteSchema = {
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: `${site.name} — Portfolio`,
+		url: site.url,
+		author: { '@type': 'Person', name: site.name },
+		about: site.headline,
+		hasPart: projects.map((p) => ({
+			'@type': 'CreativeWork',
+			name: p.title,
+			description: p.description,
+			...(p.link ? { url: p.link } : {})
+		}))
+	};
 	let active = $state(0);
 
 	$effect(() => {
@@ -41,14 +83,41 @@
 	<title>{site.name} — Full-Stack & AI Integration Developer</title>
 	<meta
 		name="description"
-		content="{site.name} — full-stack & AI integration developer based in Yogyakarta. Building AI-powered web & mobile apps and chatbots with OpenAI/Claude APIs, React, Next.js, Node.js & SvelteKit."
+		content="{site.name} — full-stack & AI integration developer based in Yogyakarta, Indonesia. Building AI-powered web & mobile apps and chatbots with OpenAI/Claude APIs, React, Next.js, Node.js & SvelteKit."
 	/>
+	<meta
+		name="keywords"
+		content="Praditya Aldi Syahputra, Full-Stack Developer, AI Integration Developer, OpenAI API, Claude API, Chatbot Developer, React, Next.js, Node.js, SvelteKit, React Native, Web Developer Yogyakarta, Indonesia"
+	/>
+	<meta name="author" content={site.name} />
+	<meta name="robots" content="index, follow, max-image-preview:large" />
+	<link rel="canonical" href={site.url} />
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="profile" />
 	<meta property="og:title" content="{site.name} — Full-Stack & AI Integration Developer" />
 	<meta
 		property="og:description"
 		content="Building AI-powered web & mobile apps and chatbots with OpenAI/Claude APIs and full-stack tooling."
 	/>
-	<meta property="og:type" content="website" />
+	<meta property="og:url" content={site.url} />
+	<meta property="og:image" content={ogImage} />
+	<meta property="og:site_name" content="{site.name} — Portfolio" />
+	<meta property="profile:first_name" content="Praditya Aldi" />
+	<meta property="profile:last_name" content="Syahputra" />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="{site.name} — Full-Stack & AI Integration Developer" />
+	<meta
+		name="twitter:description"
+		content="Building AI-powered web & mobile apps and chatbots with OpenAI/Claude APIs and full-stack tooling."
+	/>
+	<meta name="twitter:image" content={ogImage} />
+
+	<!-- Structured data for Google rich results + AI assistants -->
+	{@html `<script type="application/ld+json">${JSON.stringify(personSchema)}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify(websiteSchema)}</script>`}
 </svelte:head>
 
 <Hero3D />
