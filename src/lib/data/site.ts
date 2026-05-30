@@ -2,7 +2,7 @@ export const site = {
 	name: 'Praditya Aldi Syahputra',
 	roles: ['Web Developer', 'Remote worker'],
 	location: 'Based in Yogyakarta',
-	email: 'praditya.aldi@example.com',
+	email: 'pradityaaldi.s@gmail.com',
 	bio: [
 		"Hi! I'm a frontend developer who loves building clean, responsive, and user-friendly web interfaces. I enjoy working with technologies like JavaScript, React, and CSS to create seamless experiences that make users happy.",
 		"While my main focus is on frontend, I also have experience in backend development, which helps me understand the full picture of a web project. I'm always eager to learn new things, explore the latest trends in design, and work on projects that challenge me to grow.",
@@ -29,7 +29,7 @@ export const socials: SocialLink[] = [
 	},
 	{
 		label: 'Email',
-		href: 'mailto:praditya.aldi@example.com',
+		href: 'mailto:pradityaaldi.s@gmail.com',
 		icon: 'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.4l8 5 8-5V6H4Zm16 2.8-7.47 4.67a1 1 0 0 1-1.06 0L4 8.8V18h16V8.8Z'
 	}
 ];
