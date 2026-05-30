@@ -11,6 +11,7 @@ export const site = {
 	country: 'ID',
 	email: 'pradityaaldi.s@gmail.com',
 	image: 'avatar.jpeg',
+	ogImage: 'og-image.png',
 	skills: [
 		'AI Integration',
 		'OpenAI API',

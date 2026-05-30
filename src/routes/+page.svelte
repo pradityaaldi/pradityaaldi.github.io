@@ -10,7 +10,8 @@
 
 	const ids = ['home', 'projects', 'services', 'contact'];
 
-	const ogImage = `${site.url}/${site.image}`;
+	const avatarUrl = `${site.url}/${site.image}`;
+	const ogImage = `${site.url}/${site.ogImage}`;
 
 	const personSchema = {
 		'@context': 'https://schema.org',
@@ -18,7 +19,7 @@
 		name: site.name,
 		alternateName: site.alternateName,
 		url: site.url,
-		image: ogImage,
+		image: avatarUrl,
 		jobTitle: site.jobTitle,
 		description: site.headline,
 		email: `mailto:${site.email}`,
@@ -102,12 +103,15 @@
 	/>
 	<meta property="og:url" content={site.url} />
 	<meta property="og:image" content={ogImage} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="{site.name} — {site.jobTitle}" />
 	<meta property="og:site_name" content="{site.name} — Portfolio" />
 	<meta property="profile:first_name" content="Praditya Aldi" />
 	<meta property="profile:last_name" content="Syahputra" />
 
 	<!-- Twitter -->
-	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="{site.name} — Full-Stack & AI Integration Developer" />
 	<meta
 		name="twitter:description"
