@@ -2,13 +2,14 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import Hero3D from '$lib/components/Hero3D.svelte';
 	import Projects from '$lib/components/Projects.svelte';
+	import OpenSource from '$lib/components/OpenSource.svelte';
 	import Services from '$lib/components/Services.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import { site, socials } from '$lib/data/site';
 	import { projects } from '$lib/data/projects';
 
-	const ids = ['home', 'projects', 'services', 'contact'];
+	const ids = ['home', 'projects', 'opensource', 'services', 'contact'];
 
 	const avatarUrl = `${site.url}/${site.image}`;
 	const ogImage = `${site.url}/${site.ogImage}`;
@@ -129,6 +130,7 @@
 <main class="relative z-10">
 	<Hero />
 	<Projects />
+	<OpenSource />
 	<Services />
 	<Contact />
 </main>
