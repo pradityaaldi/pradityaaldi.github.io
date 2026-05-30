@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { ossProjects } from '$lib/data/oss';
 	import { site } from '$lib/data/site';
+	import Header from '$lib/components/Header.svelte';
 	import Reveal from '$lib/components/Reveal.svelte';
 	import { fetchRepos, type Repo } from '$lib/data/github';
 	import type { PageData } from './$types';
@@ -49,7 +50,9 @@
 	<meta name="robots" content="index, follow" />
 </svelte:head>
 
-<main class="container-page min-h-screen py-16 sm:py-24">
+<Header active={1} onHome={false} />
+
+<main class="container-page min-h-screen pb-16 pt-28 sm:pb-24 sm:pt-32">
 	<!-- back -->
 	<Reveal>
 		<a
